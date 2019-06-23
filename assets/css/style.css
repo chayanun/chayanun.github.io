@@ -17,12 +17,24 @@ section {
     padding: 70px 10px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #1a1a1a;
 }
 
-h1 { font-size: 54px; font-weight: 600;}
-h3 { font-size: 44px; font-weight: 300; }
+h1 {
+    font-size: 54px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 44px;
+    font-weight: 300;
+}
 
 p {
     margin-bottom: 0px;
@@ -34,7 +46,9 @@ b {
     font-weight: 600;
 }
 
-dl, ol, ul {
+dl,
+ol,
+ul {
     margin-bottom: 0px;
     list-style-type: none;
     padding: 0px;
@@ -55,7 +69,7 @@ a:hover {
 }
 
 .text-muted {
-    color:rgba(0, 0, 0, 0.3) !important;
+    color: rgba(0, 0, 0, 0.3) !important;
     font-size: 14px;
     font-weight: 600;
 }
@@ -111,8 +125,13 @@ a:hover {
     transform: scale(1.02);
 }
 
-.topmargin-sm { margin-top: 30px !important; }
-.topmargin-lg { margin-top: 60px !important; }
+.topmargin-sm {
+    margin-top: 30px !important;
+}
+
+.topmargin-lg {
+    margin-top: 60px !important;
+}
 
 .text-light {
     color: #f8f9fa !important;
@@ -149,6 +168,47 @@ a:hover {
     font-weight: 300;
 }
 
+.code-block {
+    display: block;
+    text-align: left;
+    font-weight: 400;
+    white-space: pre-wrap;
+    margin-top: 2em;
+}
+
+.CodeMirror {
+    padding: 10px;
+    background-color: #201e2f;
+    text-shadow: 1px 1px 1px rgba(21, 20, 31, .3);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: .88rem;
+    font-family: Monaco, Menlo, Ubuntu Mono, Droid Sans Mono, Consolas, monospace;
+    color: #fff;
+}
+
+.CodeMirror .cm-variable {
+    color: #ff8973;
+}
+
+.CodeMirror .cm-property {
+    color: #83fff5;
+}
+
+.CodeMirror .cm-number {
+    color: #ff8973;
+}
+
+.CodeMirror .cm-comment,
+.CodeMirror .cm-meta {
+    color: #939598;
+}
+
+.CodeMirror .cm-string {
+    color: #ffe083;
+}
+
+
 /*/////////////////////////////////////////
 Navbar
 ////////////////////////////////////////*/
@@ -179,6 +239,7 @@ Navbar
 #intro {
     padding: 120px 0;
 }
+
 
 /*/////////////////////////////////////////
 Pricing Box
@@ -218,6 +279,7 @@ Pricing Box
     color: rgba(0, 0, 0, 0.3);
 }
 
+
 /*/////////////////////////////////////////
 Call to Action
 ////////////////////////////////////////*/
@@ -242,11 +304,13 @@ Call to Action
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
 /*/////////////////////////////////////////
 Footer
 ////////////////////////////////////////*/
 
-#footer, #footer a  {
+#footer,
+#footer a {
     color: #f8f9fa;
 }
 
@@ -259,16 +323,17 @@ Footer
     font-weight: 600;
 }
 
-.footer-link > i {
+.footer-link>i {
     font-size: 24px;
     padding: 0 5px;
 }
+
 
 /*/////////////////////////////////////////
 Media Queries
 ////////////////////////////////////////*/
 
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
     .mobile-list {
         display: block;
         margin-bottom: 25px;
@@ -276,23 +341,24 @@ Media Queries
     .footer-link {
         padding: 0px;
     }
-    .primary-btn, .secondary-btn {
+    .primary-btn,
+    .secondary-btn {
         max-width: none;
         margin: 5px 0px;
     }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {  }
+@media (min-width: 576px) and (max-width: 767.98px) {}
 
-@media (min-width: 768px) and (max-width: 991.98px) {  }
+@media (min-width: 768px) and (max-width: 991.98px) {}
 
-@media (min-width: 992px) and (max-width: 1199.98px) { 
+@media (min-width: 992px) and (max-width: 1199.98px) {
     .mobile-app {
         max-width: 600px;
     }
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
     .mobile-app {
         max-width: 600px;
     }
