@@ -208,7 +208,19 @@ a:hover {
     color: #ffe083;
 }
 
+ol.list-number {
+    list-style: decimal; 
+    font-size: 18px; 
+    font-weight: 300; 
+    padding-inline-start: 40px;
+}
 
+ul.list-bullet {
+    list-style: disc; 
+    font-size: 18px; 
+    font-weight: 300; 
+    padding-inline-start: 40px;
+}
 /*/////////////////////////////////////////
 Navbar
 ////////////////////////////////////////*/

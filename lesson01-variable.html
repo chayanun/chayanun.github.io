@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,600" rel="stylesheet">
+
+    <!-- Ionic icons -->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+    <title>CM | JavaScript: Introduction</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="assets/images/logo-dark.png" class="logo-navbar"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="icon ion-md-menu"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#lesson">Lesson</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        Variables
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-light">
+        <div class="container">
+                <div style="text-align: center; margin-bottom: 3em;"><a href="/lesson01-intro.html">Introduction To JavaScript</a> | <a href="/lesson01-variable.html">Variables</a></div>
+            <div class="heading-block">
+                <h2>Variables</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>In programming, a <em>variable</em> is a container for a value. You can think of variables as
+                        little containers for information that live in a computer’s memory. Information stored in
+                        variables, such as a username, account number, or even personalized greeting can then be found
+                        in memory. </p>
+                        <br>
+                    <p>Variables also provide a way of labeling data with a descriptive name, so our programs can be
+                        understood more clearly by the reader and ourselves.</p> <br>
+                    <p>In short, variables label and store data in memory. There are only a few things you can do with
+                        variables:</p> <br>
+                    <ol class="list-number">
+                        <li>Create a variable with a descriptive name.</li>
+                        <li>Store or update information stored in a variable.</li>
+                        <li>Reference or “get” information stored in a variable.</li>
+                    </ol><br>
+                    <p>It is important to distinguish that variables are not values; they contain values and represent
+                        them with a name. Observe the diagram with the colored boxes. Each box represents variables; the
+                        values are represented by the content, and the name is represented with the label. </p><br>
+                    <p>In this lesson, we will cover how to use the <code>var</code>, <code>let</code>, and
+                        <code>const</code> keywords to create variables.</p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>1. Create a Variable: var</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>
+                        There were a lot of changes introduced in the ES6 version of JavaScript in 2015. One of the
+                        biggest changes was two new keywords, <code>let</code> and <code>const</code>, to create, or
+                        <em>declare</em>, variables. Prior to the ES6, programmers could only use the <code>var</code>
+                        keyword to declare variables.
+                    </p>
+                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">var</span> <span class="cm-def">myName</span> <span class="cm-operator">=</span> <span class="cm-string">'Bowie'</span>;<br><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">myName</span>);<span class="cm-comment">// Output: Bowie</span></div></span></pre>
+                    <br>
+                    <p>Let’s consider the example above:</p>
+                    <br>
+                    <ol class="list-number">
+                        <li><code>var</code>, short for variable, is a JavaScript <em>keyword</em> that creates, or
+                            <em>declares</em>, a new variable.</li>
+                        <li><code>myName</code> is the variable’s name. Capitalizing in this way is a standard
+                            convention in JavaScript called <em>camel casing</em>. In camel casing you group words into
+                            one, the first word is lowercase, then every word that follows will have its first letter
+                            uppercased. (e.g. camelCaseEverything). </li>
+                        <li><code>=</code> is the <em>assignment operator</em>. It assigns the value
+                            (<code>'Arya'</code>) to the variable (<code>myName</code>). </li>
+                        <li><code>'Arya'</code> is the <em>value</em> assigned (<code>=</code>) to the variable
+                            <code>myName</code>. You can also say that the <code>myName</code> variable is
+                            <em>initialized</em> with a value of <code>'Arya'</code>. </li>
+                        <li>After the variable is declared, the string value <code>'Arya'</code> is printed to the
+                            console by referencing the variable name: <code>console.log(myName)</code>. </li>
+                    </ol>
+                    <br>
+                    <p>There are a few general rules for naming variables: </p>
+                    <br>
+                    <ul class="list-bullet">
+                        <li>
+                            Variable names cannot start with numbers.
+                        </li>
+                        <li>
+                            Variable names are case sensitive, so <code>myName</code> and <code>myname</code> would be
+                            different variables. It is bad practice to create two variables that have the same name
+                            using different cases.
+                        </li>
+                        <li>
+                            Variable names cannot be the same as <em>keywords</em>. For a comprehensive list of keywords
+                            check out <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords"
+                                target="_blank" rel="noopener noreferrer">MDN’s keyword documentation</a>.
+                        </li>
+                    </ul>
+                    <br>
+                    <p>Note: In the next exercises, we will learn why ES6’s <code>let</code> and <code>const</code> are
+                        the preferred variable keywords by many programmers. Because there is still a ton of code
+                        written prior to ES6, it’s helpful to be familiar with the pre-ES6 <code>var</code> keyword.</p>
+                    <br>
+                    <p>If you want to learn more about <code>var</code> and the quirks associated with it, check out the
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
+                            target="_blank" rel="noopener noreferrer">MDN var documentation</a>.</p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>2. Create a Variable: let</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                        <p>As mentioned in the previous exercise, the <code>let</code> keyword was introduced in ES6. The <code>let</code> keyword signals that the variable can be reassigned a different value. Take a look at the example:</p> 
+                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">meal</span> <span class="cm-operator">=</span> <span class="cm-string">'Pizza'</span>;<br><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">meal</span>); <span class="cm-comment">// Output: Pizza</span><br><span class="cm-variable">meal</span> <span class="cm-operator">=</span> <span class="cm-string">'Burrito'</span>;<br><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">meal</span>); <span class="cm-comment">// Output: Burrito</span></div></span></pre>
+                        <p>Another concept that we should be aware of when using <code>let</code> (and even <code>var</code>) is that we can declare a variable without assigning the variable a value. In such a case, the variable will be automatically initialized with a value of <code>undefined</code>:</p>
+                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">price</span>;<br><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">price</span>); <span class="cm-comment">// Output: undefined</span><br><span class="cm-variable">price</span> <span class="cm-operator">=</span> <span class="cm-number">350</span>;<br><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">price</span>); <span class="cm-comment">// Output: 350</span></div></span></pre>
+                        <p>Notice in the example above: </p>
+                        <ul class="list-bullet">
+                        <li>If we don’t assign a value to a variable declared using the <code>let</code> keyword, it automatically has a value of <code>undefined</code>. </li>
+                        <li>We can reassign the value of the variable. </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>3. Create a Variable: const</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                        <p>The <code>const</code> keyword was also introduced in ES6, and is short for the word constant. Just like with <code>var</code> and <code>let</code> you can store any value in a <code>const</code> variable. The way you declare a <code>const</code> variable and assign a value to it follows the same structure as <code>let</code> and <code>var</code>. Take a look at the following example:</p> <br>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">myName</span> <span class="cm-operator">=</span> <span class="cm-string">'Bowie'</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">myName</span>); <span class="cm-comment">// Output: Bowie</span></div></span></pre>
+<p>However, a <code>const</code> variable cannot be reassigned because it is <em>constant</em>. If you try to reassign a <code>const</code> variable, you’ll get a <code>TypeError</code>.</p><br>
+<p>Constant variables <em>must</em> be assigned a value when declared.  If you try to declare a <code>const</code> variable without a value, you’ll get a <code>SyntaxError</code>. </p><br>
+<p>If you’re trying to decide between which keyword to use, <code>let</code> or <code>const</code>, think about whether you’ll need to reassign the variable later on. If you do need to reassign the variable use <code>let</code>, otherwise, use <code>const</code>. </p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>4. Mathematical Assignment Operators</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                        <p>Let’s consider how we can use variables and math operators to calculate new values and assign them to a variable. Check out the example below:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">w</span> <span class="cm-operator">=</span> <span class="cm-number">4</span>;
+<span class="cm-variable">w</span> <span class="cm-operator">=</span> <span class="cm-variable">w</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>;
+
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">w</span>); <span class="cm-comment">// Output: 5</span></div></span></pre>
+                        <p>In the example above, we created the variable <code>w</code> with the number <code>4</code> assigned to it. The following line, <code>w = w + 1</code>, increases the value of <code>w</code> from <code>4</code> to <code>5</code>.</p><br>
+                        <p>Another way we could have reassigned <code>w</code> after performing some mathematical operation on it is to use built-in <em>mathematical assignment operators</em>. We could re-write the code above to be:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">w</span> <span class="cm-operator">=</span> <span class="cm-number">4</span>;
+<span class="cm-variable">w</span> <span class="cm-operator">+=</span> <span class="cm-number">1</span>;
+
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">w</span>); <span class="cm-comment">// Output: 5</span></div></span></pre>
+                        <p>In the second example, we used the <code>+=</code> assignment operator to reassign <code>w</code>. We’re performing the mathematical operation of the first operator <code>+</code> using the number to the right, then reassigning <code>w</code> to the computed value. </p><br>
+                        <p>We also have access to other mathematical assignment operators: <code>-=</code>, <code>*=</code>, and <code>/=</code> which work in a similar fashion. </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-number">20</span>;
+<span class="cm-variable">x</span> <span class="cm-operator">-=</span> <span class="cm-number">5</span>; <span class="cm-comment">// Can be written as x = x - 5</span>
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">x</span>); <span class="cm-comment">// Output: 15</span>
+
+<span class="cm-keyword">let</span> <span class="cm-def">y</span> <span class="cm-operator">=</span> <span class="cm-number">50</span>;
+<span class="cm-variable">y</span> <span class="cm-operator">*=</span> <span class="cm-number">2</span>; <span class="cm-comment">// Can be written as y = y * 2</span>
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">y</span>); <span class="cm-comment">// Output: 100</span>
+
+<span class="cm-keyword">let</span> <span class="cm-def">z</span> <span class="cm-operator">=</span> <span class="cm-number">8</span>;
+<span class="cm-variable">z</span> <span class="cm-operator">/=</span> <span class="cm-number">2</span>; <span class="cm-comment">// Can be written as z = z / 2</span>
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">z</span>); <span class="cm-comment">// Output: 4</span></div></span></pre>
+                        <p>Let’s practice using these mathematical assignment operators! </p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>5. The Increment and Decrement Operator</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                        <p>Other mathematical assignment operators include the <em>increment operator</em> (<code>++</code>) and <em>decrement operator</em> (<code>--</code>). </p><br>
+<p>The increment operator will increase the value of the variable by 1. The decrement operator will decrease the value of the variable by 1.
+For example:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-variable">a</span><span class="cm-operator">++</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">a</span>); <span class="cm-comment">// Output: 11</span></div></span></pre>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">b</span> <span class="cm-operator">=</span> <span class="cm-number">20</span>;
+<span class="cm-variable">b</span><span class="cm-operator">--</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">b</span>); <span class="cm-comment">// Output: 19</span></div></span></pre>
+<p>Just like the previous mathematical assignment operators (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>), the variable’s value is updated <em>and</em> assigned as the new value of that variable.</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="heading-block" style="margin-top: 5em;">
+            <h2>6. String Concatenation with Variables</h2>
+            <div style="text-align: left; margin-top: 2em;">
+                <p>
+                    In previous exercises, we assigned strings to variables. Now, let’s go over how to connect, or concatenate, strings in variables.
+                </p><br>
+                <p>The <code>+</code> operator can be used to combine two string values even if those values are being stored in variables:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">myPet</span> <span class="cm-operator">=</span> <span class="cm-string">'cat'</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'I own a '</span> <span class="cm-operator">+</span> <span class="cm-variable">myPet</span> <span class="cm-operator">+</span> <span class="cm-string">'.'</span>); 
+<span class="cm-comment">// Output: 'I own a cat.'</span></div></span></pre>
+                <p>In the example above, we assigned the value <code>'cat'</code> to the <code>myPet</code> variable. On the second line, the <code>+</code> operator is used to combine three strings: <code>'I own a '</code>, the value saved to <code>myPet</code>, and <code>'.'</code>. We log the result of this concatenation to the console as:</p>
+<pre><span class="code-block"><div class="CodeMirror">I own a cat.</div></span></pre>
+            </div>
+        </div>
+        <div class="heading-block" style="margin-top: 5em;">
+            <h2>7. String Interpolation</h2>
+            <div style="text-align: left; margin-top: 2em;">
+                    <p>In the ES6 version of JavaScript, we can insert, or <em>interpolate</em>, variables into strings using <em>template literals</em>. Check out the following example where a template literal is used to log strings together:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">myPet</span> <span class="cm-operator">=</span> <span class="cm-string">'cat'</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`I own a pet ${</span><span class="cm-variable">myPet</span><span class="cm-string-2">}</span><span class="cm-string-2">.`</span>);
+<span class="cm-comment">// Output: I own a pet cat.</span></div></span></pre>
+                    <p>Notice that:</p>
+                    <ul class="list-bullet">
+                    <li>a template literal is wrapped by backticks <code>`</code> (this key is usually located on the top of your keyboard, left of the <kbd>1</kbd> key).</li>
+                    <li>Inside the template literal, you’ll see a placeholder, <code>${myPet}</code>. The value of <code>myPet</code> is inserted into the template literal.</li>
+                    <li>When we interpolate <code>`I own a pet ${myPet}.`</code>, the output we print is the string: <code>'I own a pet cat.'</code></li>
+                    </ul><br>
+                    <p>One of the biggest benefits to using template literals is the readability of the code. Using template literals, you can more easily tell what the new string will be. You also don’t have to worry about escaping double quotes or single quotes. </p>
+            </div>
+        </div>
+        <div class="heading-block" style="margin-top: 5em;">
+            <h2>8. typeof operator</h2>
+            <div style="text-align: left; margin-top: 2em;">
+                    <p>While writing code, it can be useful to keep track of the data types of the variables in your program. If you need to check the data type of a variable’s value, you can use the <code>typeof</code> operator. </p><br>
+<p>The <code>typeof</code>operator checks the value to its right and <em>returns</em>, or passes back, a string of the data type. </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">unknown1</span> <span class="cm-operator">=</span> <span class="cm-string">'foo'</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">unknown1</span>); <span class="cm-comment">// Output: string</span>
+
+<span class="cm-keyword">const</span> <span class="cm-def">unknown2</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">unknown2</span>); <span class="cm-comment">// Output: number</span>
+
+<span class="cm-keyword">const</span> <span class="cm-def">unknown3</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>; 
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-keyword">typeof</span> <span class="cm-variable">unknown3</span>); <span class="cm-comment">// Output: boolean</span></div></span></pre>
+<p>Let’s break down the first example. Since the value <code>unknown1</code> is <code>'foo'</code>, a string, <code>typeof unknown1</code> will return <code>'string'</code>. </p>
+            </div>
+        </div>
+        <div class="heading-block" style="margin-top: 5em;">
+            <h2>Review Variables</h2>
+            <div style="text-align: left; margin-top: 2em;">
+                <p>Nice work! This lesson introduced you to variables, a powerful concept you will use in all your future programming endeavors.</p><br>
+                <p>Let’s review what we learned:</p>
+                <ul class="list-bullet">
+                <li>Variables hold reusable data in a program and associate it with a name.</li>
+                <li>Variables are stored in memory.</li>
+                <li>The <code>var</code> keyword is used in pre-ES6 versions of JS.</li>
+                <li><code>let</code> is the preferred way to declare a variable when it can be reassigned, and <code>const</code> is the preferred way to declare a variable with a constant value.</li>
+                <li>Variables that have not been initialized store the primitive data type <code>undefined</code>.</li>
+                <li>Mathematical assignment operators make it easy to calculate a new value and assign it to the same variable.</li>
+                <li>The <code>+</code> operator is used to concatenate strings including string values held in variables</li>
+                <li>In ES6, template literals use backticks <code>`</code> and <code>${}</code> to interpolate values into a string.</li>
+                <li>The <code>typeof</code> keyword returns the data type (as a string) of a value.</li>
+                </ul>
+            </div>
+            <div style="text-align: left; margin-top: 2em;">
+                <p>To learn more about variables take on these challenges!</p>
+                <ul class="list-bullet">
+                <li>Create variables and manipulate the values</li>
+                <li>Check what happens when you try concatenating strings using variables of different data types</li>
+                <li>Interpolate multiple variables into a string </li>
+                <li>See what happens when you use <code>console.log()</code> on variables declared by different keywords (<code>const</code>, <code>let</code>, <code>var</code>) before they’re defined. For example:</li>
+                </ul>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">test1</span>);
+
+<span class="cm-keyword">const</span> <span class="cm-def">test1</span> <span class="cm-operator">=</span> <span class="cm-string">'figuring out quirks'</span>;</div></span></pre>
+                <ul class="list-bullet">
+                <li>Find the data type of a variable’s value using the  <code>typeof</code> keyword on a variable.</li>
+                <li>Use <code>typeof</code> to find the data type of the resulting value when you concatenate variables containing two different data types. </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    </section>
+
+    <section id="footer" class="bg-dark">
+        <div class="container text-center">
+            <a href="#"><img src="assets/images/logo-light.png" class="img-responsive logo-footer"
+                    alt="logo Mobile App | Themes Bootstrap"></a>
+            <ul class="list-inline topmargin-sm">
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.html#intro">Home</a></li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.html#lesson">Lesson</a>
+                </li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="#">Blog</a></li>
+                </li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.htmlS#contact">Contact</a>
+                </li>
+            </ul>
+
+            <small class="topmargin-sm">©2019 All Rights Reserved. CM®
+            </small>
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
