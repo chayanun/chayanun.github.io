@@ -208,19 +208,30 @@ a:hover {
     color: #ffe083;
 }
 
+.CodeMirror .cm-atom {
+    color: #cc7bc2;
+}
+
 ol.list-number {
-    list-style: decimal; 
-    font-size: 18px; 
-    font-weight: 300; 
+    list-style: decimal;
+    font-size: 18px;
+    font-weight: 300;
     padding-inline-start: 40px;
 }
 
 ul.list-bullet {
-    list-style: disc; 
-    font-size: 18px; 
-    font-weight: 300; 
+    list-style: disc;
+    font-size: 18px;
+    font-weight: 300;
     padding-inline-start: 40px;
 }
+
+div.exercise-block {
+    background-color: #f8f9fa;
+    padding: 0.5em;
+}
+
+
 /*/////////////////////////////////////////
 Navbar
 ////////////////////////////////////////*/
