@@ -212,6 +212,10 @@ a:hover {
     color: #cc7bc2;
 }
 
+.CodeMirror .cm-keyword,
+.CodeMirror .cm-def {
+    color: #b3ccff;
+}
 ol.list-number {
     list-style: decimal;
     font-size: 18px;

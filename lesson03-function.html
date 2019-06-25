@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,600" rel="stylesheet">
+
+    <!-- Ionic icons -->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+    <title>CM | JavaScript: Loops</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="assets/images/logo-dark.png" class="logo-navbar"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="icon ion-md-menu"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#lesson">Lesson</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        Functions
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-light">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3em;"><a href="/lesson02-condition.html">Conditional Statements</a> | <a href="/lesson02-loop.html">Loops</a></div>
+            <div class="heading-block">
+                <h2>Functions</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>A JavaScript function is a block of code designed to perform a particular task.</p><br>
+                    <p>A JavaScript function is executed when "something" invokes it (calls it).</p><br>
+                    <p>When first learning how to calculate the area of a rectangle, there’s a sequence of steps to calculate the correct answer:  </p>
+<ol class="list-number">
+<li>Measure the width of the rectangle.</li>
+<li>Measure the height of the rectangle.</li>
+<li>Multiply the width and height of the rectangle.</li>
+</ol> <br>
+
+<p>With practice, you can calculate the area of the rectangle without being instructed with these three steps every time. </p> <br>
+
+<p>We can calculate the area of one rectangle with the following code:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">width</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">height</span> <span class="cm-operator">=</span> <span class="cm-number">6</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">area</span> <span class="cm-operator">=</span>  <span class="cm-variable">width</span> <span class="cm-operator">*</span> <span class="cm-variable">height</span>;
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">area</span>); <span class="cm-comment">// Output: 60</span></div></span></pre>
+<p>Imagine being asked to calculate the area of three different rectangles: </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-comment">// Area of the first rectangle</span>
+<span class="cm-keyword">const</span> <span class="cm-def">width1</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">height1</span> <span class="cm-operator">=</span> <span class="cm-number">6</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">area1</span> <span class="cm-operator">=</span>  <span class="cm-variable">width1</span> <span class="cm-operator">*</span> <span class="cm-variable">height1</span>;
+
+<span class="cm-comment">// Area of the second rectangle</span>
+<span class="cm-keyword">const</span> <span class="cm-def">width2</span> <span class="cm-operator">=</span> <span class="cm-number">4</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">height2</span> <span class="cm-operator">=</span> <span class="cm-number">9</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">area2</span> <span class="cm-operator">=</span>  <span class="cm-variable">width2</span> <span class="cm-operator">*</span> <span class="cm-variable">height2</span>;
+
+<span class="cm-comment">// Area of the third rectangle</span>
+<span class="cm-keyword">const</span> <span class="cm-def">width3</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">height3</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>;
+<span class="cm-keyword">const</span> <span class="cm-def">area3</span> <span class="cm-operator">=</span>  <span class="cm-variable">width3</span> <span class="cm-operator">*</span> <span class="cm-variable">height3</span>;</div></span></pre>
+<p>In programming, we often use code to perform a specific task multiple times. Instead of rewriting the same code, we can group a block of code together and associate it with one task, then we can reuse that block of code whenever we need to perform the task again. We achieve this by creating a <em>function</em>. A function is a reusable block of code that groups together a sequence of statements to perform a specific task. </p> <br>
+<p>In this lesson, you will learn how to create and use functions, and how they can be used to create clearer and more concise code.</p> <br>
+                    <p>
+                        <img src="assets/images/functions_2.gif" width="800px" alt="" srcset="">
+                    </p> <br>
+                    <p>Take a look at the provided GIF. It shows a function, named <code>addOneSide</code>, adding an additional side to different shape inputs. Notice how there is only one function, represented by the box, that is used to transform individual shapes (inputs) into new shapes (outputs). </p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>1. Function Declarations</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>In JavaScript, there are many ways to create a function. One way to create a function is by using a <em>function declaration</em>. Just like how a variable declaration binds a value to a variable name, a function declaration binds a function to a name, or an <em>identifier</em>.
+                        Take a look at the anatomy of a function declaration below:</p>
+                        <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/declaration.svg" alt="Diagram showing the syntax of a function declaration">
+                        
+                        <p>A function declaration consists of: </p>
+                        <ul class="list-bullet">
+                        <li>The <code>function</code> keyword.</li>
+                        <li>The name of the function, or its identifier, followed by parentheses.</li>
+                        <li>A function body, or the block of statements required to perform a specific task, enclosed in the function’s curly brackets, <code>{ }</code>.</li>
+                        </ul> <br>
+                        <p>A function declaration is a function that is bound to an identifier, or name. In the next exercise we’ll go over how to run the code inside the function body. </p> <br>
+                        <p>We should also be aware of the <em>hoisting</em> feature in JavaScript which allows access to function declarations before they’re defined. </p> <br>
+                        <p>Take a look at example of hoisting:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">greetWorld</span>()); <span class="cm-comment">// Output: Hello, World!</span>
+
+<span class="cm-keyword">function</span> <span class="cm-def">greetWorld</span>() {
+    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'Hello, World!'</span>);
+}</div></span></pre>
+                        <p>Notice how hoisting allowed <code>greetWorld()</code> to be called before the <code>greetWorld()</code> function was defined! Since hoisting isn’t considered good practice, we simply want you to be aware of this feature.</p> <br>
+                        <p>If you want to read more about hoisting, check out <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting" target="_blank" rel="noopener noreferrer">MDN documentation on hoisting</a>. </p>
+                        <br>
+                        <div class="exercise-block">
+                            <h4>Exercise</h4>
+                            <ol class="list-number">
+                                <li>
+                                    <p>Let’s create a function that prints a reminder to the console. Using a function declaration, create a function called <code>getReminder()</code>. </p>
+                                    <br>
+                                    <p>In the function body of <code>getReminder()</code>,  log the following reminder to the console: <code>'Water the plants.'</code></p>
+                                </li>
+                                <li>
+                                    <p>Let’s create another function that prints a useful Spanish travel phrase to the console.</p>
+                                    <p>Using a function declaration, create a function called <code>greetInSpanish()</code>. </p> <br>
+                                    <p>In the function body <code>console.log()</code> the following Spanish phrase to the console: <code>'Buenas Tardes.'</code></p>
+                                </li>
+                            </ol>
+                        </div>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>2. Calling a Function</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>As we saw in previous exercises, a function declaration binds a function to an identifier. </p>
+<p>However, a function declaration does not ask the code inside the function body to run, it just declares the existence of the function. The code inside a function body runs, or <em>executes</em>, only when the function is <em>called</em>. To call a function in your code, you type the function name followed by parentheses.</p>
+<img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/name.svg" alt="Diagram showing the syntax of invoking a function">
+
+<p>This <em>function call</em> executes the function body, or all of the statements between the curly braces in the function declaration.
+<img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/function+execution.svg " alt="Function execution diagram"></p>
+<p>We can call the same function as many times as needed.</p>
+<p>Let’s practice calling functions in our code. </p> <br>
+<div class="exercise-block">
+    <h4>Exercise</h4>
+    <ol class="list-number">
+        <li>
+            <p>Imagine that you manage an online store. When a customer places an order, you send them a thank you note. Let’s create a function to complete this task:</p>
+            <ul class="list-bullet">
+            <li>Define a function called <code>sayThanks()</code> as a function declaration.</li>
+            <li>In the function body of <code>sayThanks()</code>, add code such that the function writes the following thank you message to the console when called:
+            <code>'Thank you for your purchase! We appreciate your business.'</code></li>
+            <li>Call sayThanks() to view the thank you message in the console.</li>
+            </ul>
+        </li>
+        <li>
+            <p>Functions can be called as many times as you need them.</p>
+            <p>Imagine that three customers placed an order and you wanted to send each of them a thank you message. Update your code to call <code>sayThanks()</code> three times.</p>
+        </li>
+    </ol>
+</div>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>3. Parameters and Arguments</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>So far, the functions we’ve created execute a task without an input. However, some functions can take inputs and use the inputs to perform a task. When declaring a function, we can specify its <em>parameters</em>. Parameters allow functions to accept input(s) and perform a task using the input(s). We use parameters as placeholders for information that will be passed to the function when it is called. </p><br>
+                    <p>Let’s observe how to specify parameters in our function declaration:</p>
+                    <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/function+parameters.svg" alt="JavaScript syntax for declaring a function with parameters">
+
+
+<p>In the diagram above, <code>calculateArea()</code>, computes the area of a rectangle, based on two inputs, <code>width</code> and <code>height</code>. The parameters are specified between the parenthesis as <code>width</code> and <code>height</code>, and inside the function body, they act just like regular variables. <code>width</code> and <code>height</code> act as placeholders for values that will be multiplied together. </p> <br>
+<p>When calling a function that has parameters, we specify the values in the parentheses that follow the function name. The values that are passed to the function when it is called are called <em>arguments</em>. Arguments can be passed to the function as values or variables. </p>
+<img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/by_value.svg" alt="JavaScript syntax for invoking a function with arguments as values">
+
+<p>In the function call above, the number <code>10</code> is passed as the <code>width</code> and <code>6</code> is passed as <code>height</code>. Notice that the order in which arguments are passed and assigned follows the order that the parameters are declared.  </p>
+<img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-functions/Diagram/by_variable.svg" alt="JavaScript syntax for invoking a function with arguments as variables">
+
+<p>The variables <code>rectWidth</code> and <code>rectHeight</code> are initialized with the values for the height and width of a rectangle before being used in the function call. </p> <br>
+<p>By using parameters, <code>calculateArea()</code> can be reused to compute the area of any rectangle! Functions are a powerful tool in computer programming so let’s practice creating and calling functions with parameters.</p><br>
+                    <div class="exercise-block">
+                        <h4>Exercise</h4>
+                        <ol class="list-number">
+                            <li>
+                                <p>The <code>sayThanks()</code> function works well, but let’s add the customer’s name in the message.</p>
+                                <p>Add a parameter called <code>name</code> to the function declaration for <code>sayThanks()</code>. </p>
+                            </li>
+                            <li>
+                                <p>With <code>name</code> as a parameter, it can be used as a variable in the function body of <code>sayThanks()</code>.</p>
+<p>Using <code>name</code> and string concatenation, change the thank you message into the following:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-string">'Thank you for your purchase '</span><span class="cm-operator">+</span> <span class="cm-variable">name</span> <span class="cm-operator">+</span> <span class="cm-string">'! We appreciate your business.'</span></div></span></pre>
+<p>Copy and paste the above message into your code.</p>
+                            </li>
+                            <li>
+                                <p>A customer named James just purchased something from your online store.
+                                    Call <code>sayThanks()</code> and pass <code>'James'</code> as an argument to send Cole a personalized thank you message.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>4. Default Parameters</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>One of the features added in ES6 is the ability to use <em>default parameters</em>. Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is <code>undefined</code> when called.</p> <br>
+<p>Take a look at the code snippet below that uses a default parameter:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">function</span> <span class="cm-def">greeting</span> (<span class="cm-def">name</span> <span class="cm-operator">=</span> <span class="cm-string">'stranger'</span>) {
+  <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Hello, ${</span><span class="cm-variable-2">name</span><span class="cm-string-2">}</span><span class="cm-string-2">!`</span>)
+}
+
+<span class="cm-variable">greeting</span>(<span class="cm-string">'Nick'</span>) <span class="cm-comment">// Output: Hello, Nick!</span>
+<span class="cm-variable">greeting</span>() <span class="cm-comment">// Output: Hello, stranger!</span>
+</div></span></pre>
+<ul class="list-bullet">
+<li><p>In the example above, we used the <code>=</code> operator to assign the parameter <code>name</code> a default value of <code>'stranger'</code>. This is useful to have in case we ever want to include a non-personalized default greeting!</p>
+</li>
+<li><p>When the code calls <code>greeting('Nick')</code> the value of the argument is passed in and, <code>'Nick'</code>, will override the default parameter of <code>'stranger'</code> to log <code>'Hello, Nick!'</code> to the console.</p>
+</li>
+<li><p>When there isn’t an argument passed into <code>greeting()</code>, the default value of <code>'stranger'</code> is used, and <code>'Hello, stranger!'</code> is logged to the console.</p>
+</li>
+</ul> <br>
+<p>By using a default parameter, we account for situations when an argument isn’t passed into a function that is expecting an argument. </p>
+                    <br>
+                    <div class="exercise-block">
+                        <h4>Exercise</h4>
+                        <ol class="list-number">
+                            <li>
+                                    <p>The function <code>makeShoppingList()</code> creates a shopping list based on the items that are passed to the function as arguments. </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">function</span> <span class="cm-def">makeShoppingList</span> (<span class="cm-def">item1</span>, <span class="cm-def">item2</span>, <span class="cm-def">item3</span>) {
+    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Remember to buy ${</span><span class="cm-variable-2">item1</span><span class="cm-string-2">}</span><span class="cm-string-2">`</span>)
+    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Remember to buy ${</span><span class="cm-variable-2">item2</span><span class="cm-string-2">}</span><span class="cm-string-2">`</span>)
+    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Remember to buy ${</span><span class="cm-variable-2">item3</span><span class="cm-string-2">}</span><span class="cm-string-2">`</span>)
+}
+</div></span></pre>
+
+                                <p>Imagine that you always purchase milk, bread, and eggs every time you go shopping for groceries. To make creating a grocery list easier, let’s assign default values to the parameters in function <code>makeShoppingList()</code>.</p>
+                                <p>Change the parameters of <code>makeShoppingList()</code> into default parameters :</p>
+                                <ul class="list-bullet">
+                                    <li>Assign ‘milk’ as the default value of <code>item1</code>.</li>
+                                    <li>Assign ‘bread’ as the default value of <code>item2</code>.</li>
+                                    <li>Assign ‘eggs’ as the default value of <code>item3</code>.</li>
+                                    </ul>
+                            </li>
+                        
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>5. Return</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer" class="bg-dark">
+        <div class="container text-center">
+            <a href="#"><img src="assets/images/logo-light.png" class="img-responsive logo-footer" alt="logo Mobile App | Themes Bootstrap"></a>
+            <ul class="list-inline topmargin-sm">
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.html#intro">Home</a></li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.html#lesson">Lesson</a>
+                </li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="#">Blog</a></li>
+                </li>
+                <li class="list-inline-item mobile-list"><a class="footer-link" href="/index.htmlS#contact">Contact</a>
+                </li>
+            </ul>
+
+            <small class="topmargin-sm">©2019 All Rights Reserved. CM®
+            </small>
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
