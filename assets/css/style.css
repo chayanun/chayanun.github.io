@@ -216,6 +216,9 @@ a:hover {
 .CodeMirror .cm-def {
     color: #b3ccff;
 }
+.CodeMirror .cm-variable-2, .CodeMirror .cm-variable-3 {
+    color: #ff8973;
+}
 ol.list-number {
     list-style: decimal;
     font-size: 18px;
@@ -234,8 +237,25 @@ div.exercise-block {
     background-color: #f8f9fa;
     padding: 0.5em;
 }
-
-
+.hint {
+    cursor: pointer;
+}
+.hintHeader {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #fff3cd;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    outline: none;
+    transition: background-color .15s ease-in-out;
+    border-top: 1px solid #ffda6a;
+    border-bottom: 1px solid #ffda6a;
+}
+.hintBody {
+    padding: 1rem 2rem;
+    background-color: rgba(255,243,205,.5);
+}
 /*/////////////////////////////////////////
 Navbar
 ////////////////////////////////////////*/
