@@ -198,391 +198,354 @@
                 </div>
             </div>
             <div class="heading-block" style="margin-top: 5em;">
-                <h2>3. Bracket Notation</h2>
+                <h2>3. Methods</h2>
                 <div style="text-align: left; margin-top: 2em;">
-                    <p>The second way to access a key’s value is by using bracket notation, <code>[ ]</code>.</p>
-                    <p>You’ve used bracket notation when indexing an array:</p>
-                    <pre><span class="code-block"><div class="CodeMirror">[<span class="cm-string">'A'</span>, <span class="cm-string">'B'</span>, <span class="cm-string">'C'</span>][<span class="cm-number">0</span>]; <span class="cm-comment">// Returns 'A'</span></div></span></pre>
-                    <p>To use bracket notation to access an object’s property, we pass in the property name (key) as a string.</p>
-                    <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-objects/object+access+bracket.svg">
-                    <p> We *must* use bracket notation when accessing keys that have numbers, spaces, or special characters in them. Without bracket notation in these situations, our code would throw an error.</p>
+                    <p>At this point, we have a <code>Dog</code> class that spins up objects with <code>name</code> and <code>behavior</code> properties. Below, we will add getters and a method to bring our class to life. </p> <br>
+<p>Class method and getter syntax is the same as it is for objects <strong>except you can not include commas between methods</strong>.</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Dog</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
 
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-string property">'Fuel Type'</span>: <span class="cm-string">'Turbo Fuel'</span>,
-    <span class="cm-string property">'Active Duty'</span>: <span class="cm-atom">true</span>,
-    <span class="cm-property">homePlanet</span>: <span class="cm-string">'Earth'</span>,
-    <span class="cm-property">numCrew</span>: <span class="cm-number">5</span>
-};
-<span class="cm-variable">spaceship</span>[<span class="cm-string">'Active Duty'</span>];   <span class="cm-comment">// Returns true</span>
-<span class="cm-variable">spaceship</span>[<span class="cm-string">'Fuel Type'</span>];   <span class="cm-comment">// Returns  'Turbo Fuel'</span>
-<span class="cm-variable">spaceship</span>[<span class="cm-string">'numCrew'</span>];   <span class="cm-comment">// Returns 5</span>
-<span class="cm-variable">spaceship</span>[<span class="cm-string">'!!!!!!!!!!!!!!!'</span>];   <span class="cm-comment">// Returns undefined</span></div></span></pre>
-                    <p>With bracket notation you can also use a variable inside the brackets to select the keys of an object. This can be especially helpful when working with functions:</p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">returnAnyProp</span> <span class="cm-operator">=</span> (<span class="cm-def">objectName</span>, <span class="cm-def">propName</span>) <span class="cm-operator">=&gt;</span> <span class="cm-variable-2">objectName</span>[<span class="cm-variable-2">propName</span>];
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
 
-<span class="cm-variable">returnAnyProp</span>(<span class="cm-variable">spaceship</span>, <span class="cm-string">'homePlanet'</span>); <span class="cm-comment">// Returns 'Earth'</span></div></span></pre>
-                    <p>If we tried to write our <code>returnAnyProp()</code> function with dot notation (<code>objectName.propName</code>) the computer would look for a key of <code>'propName'</code> on our object and not the value of the <code>propName</code>                        parameter. </p>
-                    <p>Let’s get some practice using bracket notation to access properties!</p><br>
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+}</div></span></pre>
+<p>In the example above, we add getter methods for <code>name</code> and <code>behavior</code>. Notice, we also prepended our property names with underscores (<code>_name</code> and <code>_behavior</code>), which indicate these properties should not be accessed directly. Under the getters, we add a method named <code>.incrementBehavior()</code>. When you call <code>.incrementBehavior()</code> on a Dog instance, it adds <code>1</code> to the <code>_behavior</code> property. Between each of our methods, we did <em>not</em> include commas.</p><br>
                     <div class="exercise-block">
                         <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-comment">// An object literal with two key-value pairs</span>
-<span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-string property">'Fuel Type'</span>: <span class="cm-string">'Turbo Fuel'</span>,
-    <span class="cm-string property">'Active Mission'</span>: <span class="cm-atom">true</span>,
-    <span class="cm-property">homePlanet</span>: <span class="cm-string">'Earth'</span>,
-    <span class="cm-property">numCrew</span>: <span class="cm-number">5</span>
-};
-
-<span class="cm-keyword">let</span> <span class="cm-def">propName</span> <span class="cm-operator">=</span> &nbsp;<span class="cm-string">'Active Mission'</span>;
-</div></span></pre>
-                        <p>Let’s use bracket notation to access the value of <code>'Active Mission'</code> from the <code>spaceship</code> object in the code editor. Create a variable <code>isActive</code> and assign the <code>spaceship</code>‘s <code>'Active Mission'</code>                            property to it.</p> <br>
-                        <p>Using bracket notation and the <code>propName</code> variable provided, <code>console.log()</code> the value of the <code>'Active Mission'</code> property. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="heading-block" style="margin-top: 5em;">
-                <h2>4. Property Assignment</h2>
-                <div style="text-align: left; margin-top: 2em;">
-                    <p>Once we’ve defined an object, we’re not stuck with all the properties we wrote. Objects are <em>mutable</em> meaning we can update them after we create them! </p>
-                    <p>We can use either dot notation, <code>.</code>, or bracket notation, <code>[]</code>, and the assignment operator, <code>=</code> to add new key-value pairs to an object or change an existing property. </p>
-                    <img src="https://s3.amazonaws.com/codecademy-content/courses/learn-javascript-objects/object+update+property.svg">
-
-                    <p>One of two things can happen with property assignment:</p>
-                    <ul>
-                        <li>If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.</li>
-                        <li>If there was no property with that name, a new property will be added to the object. </li>
-                    </ul>
-                    <p>It’s important to know that although we can’t reassign an object declared with <code>const</code>, we can still mutate it, meaning we can add new properties and change the properties that are there.</p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {<span class="cm-property">type</span>: <span class="cm-string">'shuttle'</span>};
-<span class="cm-variable">spaceship</span> <span class="cm-operator">=</span> {<span class="cm-property">type</span>: <span class="cm-string">'alien'</span>}; <span class="cm-comment">// TypeError: Assignment to constant variable.</span>
-<span class="cm-variable">spaceship</span>.<span class="cm-property">type</span> <span class="cm-operator">=</span> <span class="cm-string">'alien'</span>; <span class="cm-comment">// Changes the value of the type property</span>
-<span class="cm-variable">spaceship</span>.<span class="cm-property">speed</span> <span class="cm-operator">=</span> <span class="cm-string">'Mach 5'</span>; <span class="cm-comment">// Creates a new key of 'speed' with a value of 'Mach 5'</span></div></span></pre>
-                    <p>You can delete a property from an object with the <code>delete</code> operator. </p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-string property">'Fuel Type'</span>: <span class="cm-string">'Turbo Fuel'</span>,
-    <span class="cm-property">homePlanet</span>: <span class="cm-string">'Earth'</span>,
-    <span class="cm-property">mission</span>: <span class="cm-string">'Explore the universe'</span> 
-};
-
-<span class="cm-keyword">delete</span> <span class="cm-variable">spaceship</span>.<span class="cm-property">mission</span>;  <span class="cm-comment">// Removes the mission property</span></div></span></pre>
-                    <br>
-                    <div class="exercise-block">
-                        <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-string property">'Fuel Type'</span>: <span class="cm-string">'Turbo Fuel'</span>,
-    <span class="cm-string property">'Active Mission'</span>: <span class="cm-atom">true</span>,
-    <span class="cm-property">homePlanet</span>: <span class="cm-string">'Earth'</span>,
-    <span class="cm-string property">'Secret Mission'</span>: <span class="cm-string">'Discover life outside of Earth.'</span>
-};
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Surgeon</span> {
+    <span class="cm-property">constructor</span>(<span class="cm-def">name</span>, <span class="cm-def">department</span>) {
+        <span class="cm-keyword">this</span>.<span class="cm-property">name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+        <span class="cm-keyword">this</span>.<span class="cm-property">department</span> <span class="cm-operator">=</span> <span class="cm-variable-2">department</span>;
+    } 
+}
 </div></span></pre>
                         <ol class="list-number">
                             <li>
-                                <p>Reassign the <code>color</code> property of the <code>spaceship</code> object to have a value of <code>'glorious gold'</code> </p>
+                                <p>In the <code>Surgeon</code> constructor, prepend the <code>name</code> and <code>department</code> properties with an underscore (<code>_</code>).</p> <br>
+                                <p>In the <code>Surgeon</code> constructor, prepend the <code>name</code> and <code>department</code> properties with an underscore (<code>_</code>).</p> <br>
+                                
                             </li>
                             <li>
-                                <p>Without changing lines 1 - 6, add a <code>numEngines</code> property with a numeric value between 1 and 10 to the <code>spaceship</code> object.</p>
+                                <p>Under the <code>constructor()</code>, create a getter called <code>name</code> that returns the value saved to <code>_name</code>.</p> <br>
+                                <p>Under the <code>name</code> getter, create a getter called <code>department</code> that returns the value saved to <code>_department</code>.</p> <br>
+                                <p>Under the <code>department</code> getter, create a getter called <code>remainingVacationDays</code> that returns the value saved to <code>_remainingVacationDays</code>.</p>
                             </li>
                             <li>
-                                <p>Use the <code>delete</code> operator to remove the <code>'Secret Mission'</code> property from the <code>spaceship</code> object.</p>
+                                <p>Under the <code>remainingVacationDays</code> getter, create a method called <code>takeVacationDays</code> that accepts one argument named <code>daysOff</code>.</p> <br>
+                                <p>Inside of the method, subtract <code>daysOff</code> from the number saved to <code>_remainingVacationDays</code>. Set <code>_remainingVacationDays</code> to the result.</p>
                             </li>
                         </ol>
                     </div>
                 </div>
             </div>
             <div class="heading-block" style="margin-top: 5em;">
-                <h2>5. Methods</h2>
+                <h2>4. Method Calls</h2>
                 <div style="text-align: left; margin-top: 2em;">
-                    <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW markdown__9IJtFiBid4n5zXkbY44GA">
-                        <p>When the data stored on an object is a function we call that a <em>method</em>. A property is what an object has, while a method is what an object does.</p>
-                        <p>Do object methods seem familiar? That’s because you’ve been using them all along! For example <code>console</code> is a global javascript object and <code>.log()</code> is a method on that object. <code>Math</code> is also a global
-                            javascript object and <code>.floor()</code> is a method on it. </p>
-                        <p>We can include methods in our object literals by creating ordinary, comma-separated key-value pairs. The key serves as our method’s name, while the value is an anonymous function expression.</p>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">alienShip</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">invade</span>: <span class="cm-keyword">function</span> () { 
-    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'</span>)
-    }
-};</div></span></pre>
-                        <p>With the new method syntax introduced in ES6 we can omit the colon and the <code>function</code> keyword.</p>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">alienShip</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">invade</span> () { 
-    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'</span>)
-    }
-};</div></span></pre>
-                        <p>Object methods are invoked by appending the object’s name with the dot operator followed by the method name and parentheses:</p>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-variable">alienShip</span>.<span class="cm-property">invade</span>(); <span class="cm-comment">// Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'</span></div></span></pre>
-                    </div>
+                    <p>Finally, let’s use our new methods to access and manipulate data from <code>Dog</code> instances. </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Dog</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }   
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+}
+
+<span class="cm-keyword">const</span> <span class="cm-def">halley</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Dog</span>(<span class="cm-string">'Halley'</span>);</div></span></pre>
+<p>In the example above, we create the <code>Dog</code> class, then create an instance, and save it to a variable named <code>halley</code>. </p> <br>
+<p>The syntax for calling methods and getters on an instance is the same as calling them on an object — append the instance with a period, then the property or method name. For methods, you must also include opening and closing parentheses.</p> <br>
+<p>  Let’s take a moment to create two <code>Dog</code> instances and call our <code>.incrementBehavior()</code> method on one of them.</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">nikko</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Dog</span>(<span class="cm-string">'Nikko'</span>); <span class="cm-comment">// Create dog named Nikko</span>
+<span class="cm-variable">nikko</span>.<span class="cm-property">incrementBehavior</span>(); <span class="cm-comment">// Add 1 to nikko instance's behavior</span>
+<span class="cm-keyword">let</span> <span class="cm-def">bradford</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Dog</span>(<span class="cm-string">'Bradford'</span>); <span class="cm-comment">// Create dog name Bradford</span>
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">nikko</span>.<span class="cm-property">behavior</span>); <span class="cm-comment">// Logs 1 to the console</span>
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">bradford</span>.<span class="cm-property">behavior</span>); <span class="cm-comment">// Logs 0 to the console</span></div></span></pre>
+<p>In the example above, we create two new <code>Dog</code> instances, <code>nikko</code> and <code>bradford</code>. Because we increment the behavior of our <code>nikko</code> instance, but not <code>bradford</code>, accessing <code>nikko.behavior</code> returns <code>1</code> and accessing <code>bradford.behavior</code> returns <code>0</code>.</p>
                     <br>
                     <div class="exercise-block">
                         <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">retreatMessage</span> <span class="cm-operator">=</span> <span class="cm-string">'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.'</span>;
-                        </div></span></pre>
                         <ol class="list-number">
                             <li>
-                                <p>Below the <code>retreatMessage</code> variable in your code editor, create an <code>alienShip</code> object. It should contain a method <code>.retreat()</code> which will <code>console.log()</code> the <code>retreatMessage</code>.
-                                </p>
+                                <p>At the bottom of <strong>main.js</strong>, use <code>console.log()</code> to print the value saved to the<code>name</code> property of the <code>surgeonCurry</code> object.</p>
                             </li>
                             <li>
-                                <p>Add another method to your object literal. This method, <code>.takeOff()</code>, should <code>console.log()</code> the string <code>'Spim... Borp... Glix... Blastoff!'</code>.</p>
-                            </li>
-                            <li>
-                                <p>Invoke your two methods: first <code>.retreat()</code> then <code>.takeOff()</code>.</p>
+                                <p>Call <code>.takeVacationDays()</code> on <code>surgeonCurry</code>, with an input of <code>3</code>. </p> <br>
+                                <p>After the call to <code>.takeVacationDays()</code>, use <code>console.log()</code> to print the value saved to the <code>remainingVacationDays</code> property of the <code>surgeonCurry</code> instance.</p>
                             </li>
                         </ol>
                     </div>
                 </div>
             </div>
             <div class="heading-block" style="margin-top: 5em;">
-                <h2>6. Nested Objects</h2>
+                <h2>5. Inheritance</h2>
                 <div style="text-align: left; margin-top: 2em;">
-                    <p>In application code, objects are often nested— an object might have another object as a property which in turn could have a property that’s an array of even more objects!</p>
-                    <p>In our <code>spaceship</code> object, we want a <code>crew</code> object. This will contain all the crew members who do important work on the craft. Each of those <code>crew</code> members are objects themselves. They have properties
-                        like <code>name</code>, and <code>degree</code>, and they each have unique methods based on their roles. We can also nest other objects in the <code>spaceship</code> such as a <code>telescope</code> or nest details about the spaceship’s
-                        computers inside a parent <code>nanoelectronics</code> object.</p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-        <span class="cm-property">telescope</span>: {
-        <span class="cm-property">yearBuilt</span>: <span class="cm-number">2018</span>,
-        <span class="cm-property">model</span>: <span class="cm-string">'91031-XLT'</span>,
-        <span class="cm-property">focalLength</span>: <span class="cm-number">2032</span> 
-        },
-    <span class="cm-property">crew</span>: {
-        <span class="cm-property">captain</span>: { 
-            <span class="cm-property">name</span>: <span class="cm-string">'Sandra'</span>, 
-            <span class="cm-property">degree</span>: <span class="cm-string">'Computer Engineering'</span>, 
-            <span class="cm-property">encourageTeam</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'We got this!'</span>) } 
-            }
-    },
-    <span class="cm-property">engine</span>: {
-        <span class="cm-property">model</span>: <span class="cm-string">'Nimbus2000'</span>
-        },
-        <span class="cm-property">nanoelectronics</span>: {
-            <span class="cm-property">computer</span>: {
-            <span class="cm-property">terabytes</span>: <span class="cm-number">100</span>,
-            <span class="cm-property">monitors</span>: <span class="cm-string">'HD'</span>
-            },
-        <span class="cm-string property">'back-up'</span>: {
-            <span class="cm-property">battery</span>: <span class="cm-string">'Lithium'</span>,
-            <span class="cm-property">terabytes</span>: <span class="cm-number">50</span>
-            }
+                    <p>Imagine our doggy daycare is so successful that we decide to expand the business and open a kitty daycare.  Before the daycare opens, we need to create a <code>Cat</code> class so we can quickly generate <code>Cat</code> instances. We know that the properties in our <code>Cat</code> class (<code>name</code>, <code>behavior</code>) are similar to the properties in our <code>Dog</code> class, though, there will be some differences, because of course, cats are not dogs. </p> <br>
+<p>Let’s say that our <code>Cat</code> class looks like this:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Cat</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>, <span class="cm-def">usesLitter</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_usesLitter</span> <span class="cm-operator">=</span> <span class="cm-variable-2">usesLitter</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">usesLitter</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_usesLitter</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }  
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+}</div></span></pre>
+<p>In the example above, we create a <code>Cat</code> class. It shares a couple of properties (<code>_name</code> and <code>_behavior</code>) and a method (<code>.incrementBehavior()</code>) with the <code>Dog</code> class from earlier exercises. The <code>Cat</code> class also contains one additional property (<code>_usesLitter</code>), that holds a boolean value to indicate whether a cat can use their litter box.</p> <br>
+<p>When multiple classes share properties or methods, they become candidates for <em>inheritance</em> — a tool developers use to decrease the amount of code they need to write. </p> <br>
+<p>With inheritance, you can create a <em>parent</em> class (also known as a superclass) with properties and methods that multiple <em>child</em> classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.  </p> <br>
+<p>Let’s abstract the shared properties and methods from our <code>Cat</code> and <code>Dog</code> classes into a parent class called <code>Animal</code>. </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Animal</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }   
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+} </div></span></pre>
+<p>In the example above, the <code>Animal</code> class contains the properties and methods that the <code>Cat</code> and <code>Dog</code> classes share (<code>name</code>, <code>behavior</code>, <code>.incrementBehavior()</code>). </p> <br>
+<p>The diagram below shows the relationships we want to create between the Animal, Cat, and Dog classes.</p>
+<div class="francine-image__container"><img src="assets/images/inheritance_diagram.svg" alt="" srcset="">
+</div> <br>
+<p>In the last exercise, we created a parent class named <code>Animal</code> for two child classes named <code>Cat</code> and <code>Dog</code>. </p> <br>
+<p>The <code>Animal</code> class below contains the shared properties and methods of <code>Cat</code> and <code>Dog</code>.</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Animal</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }   
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+} </div></span></pre>
+<p>The code below shows the <code>Cat</code> class that will inherit information from the <code>Animal</code> class.</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Cat</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>, <span class="cm-def">usesLitter</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_usesLitter</span> <span class="cm-operator">=</span> <span class="cm-variable-2">usesLitter</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">usesLitter</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_usesLitter</span>;
+  }
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+}</div></span></pre>
+<p>We’ve abstracted the shared properties and methods of our <code>Cat</code> and <code>Dog</code> classes into a parent class called <code>Animal</code> (See below). </p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Animal</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">name</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_name</span>;
+  }
+
+  <span class="cm-keyword">get</span> <span class="cm-property">behavior</span>() {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span>;
+  }
+
+  <span class="cm-property">incrementBehavior</span>() {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span><span class="cm-operator">++</span>;
+  }
+} </div></span></pre>
+<p>Now that we have these shared properties and methods in the parent <code>Animal</code> class, we can extend them to the subclass, <code>Cat</code>.</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Cat</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Animal</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>, <span class="cm-def">usesLitter</span>) {
+    <span class="cm-keyword">super</span>(<span class="cm-variable-2">name</span>);
+    <span class="cm-keyword">this</span>.<span class="cm-property">_usesLitter</span> <span class="cm-operator">=</span> <span class="cm-variable-2">usesLitter</span>;
+  }
+}</div></span></pre>
+<p>In the example above, we create a new class named <code>Cat</code> that extends the <code>Animal</code> class. Let’s pay special attention to our new keywords: <code>extends</code> and <code>super</code>.</p>
+<ul class="list-bullet">
+<li>The <code>extends</code> keyword makes the methods of the animal class available inside the cat class.</li>
+<li>The constructor, called when you create a new <code>Cat</code> object, accepts two arguments, <code>name</code> and <code>usesLitter</code>. </li>
+<li>The <code>super</code> keyword calls the constructor of the parent class. In this case, <code>super(name)</code> passes the name argument of the <code>Cat</code> class to the constructor of the <code>Animal</code> class. When the <code>Animal</code> constructor runs, it sets <code>this._name = name;</code> for new <code>Cat</code> instances.</li>
+<li><code>_usesLitter</code> is a new property that is unique to the <code>Cat</code> class, so we set it in the <code>Cat</code> constructor.</li>
+</ul> <br>
+<p>Notice, we call <code>super</code> on the first line of our <code>constructor()</code>, then set the <code>usesLitter</code> property on the second line. In a <code>constructor()</code>, you must always call the <code>super</code> method before you can use the <code>this</code> keyword — if you do not, JavaScript will throw a reference error. To avoid reference errors, it is best practice to call <code>super</code> on the first line of subclass constructors.</p> <br>
+<p>Below, we create a new <code>Cat</code> instance and call its name with the same syntax as we did with the <code>Dog</code> class:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">bryceCat</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Cat</span>(<span class="cm-string">'Bryce'</span>, <span class="cm-atom">false</span>); 
+<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">bryceCat</span>.<span class="cm-property">_name</span>); <span class="cm-comment">// output: Bryce</span></div></span></pre>
+<p>In the example above, we create a new instance the <code>Cat</code> class, named <code>bryceCat</code>. We pass it <code>'Bryce'</code> and <code>false</code> for our <code>name</code> and <code>usesLitter</code> arguments. When we call <code>console.log(bryceCat._name)</code> our program prints, <code>Bryce</code>.</p> <br>
+<p>In the example above, we abandoned best practices by calling our <code>_name</code> property directly. In the next exercise, we’ll address this by calling an inherited getter method for our <code>name</code> property.</p> <br>
+<p>In <strong>main.js</strong>, you will put what you learned to practice by creating a parent class named <code>HospitalEmployee</code>.</p> <br>
+
+                    <div class="exercise-block">
+                        <h4>Exercise</h4>
+                        <ol class="list-number">
+                            <li>
+                                <p>In the next few exercises, you will create two subclasses (<code>Doctor</code> and <code>Nurse</code>) from a parent class named <code>HospitalEmployee</code>. Below, we have listed the properties and methods you will find in the <code>Doctor</code> and <code>Nurse</code> classes.</p>
+<h4>Doctor</h4>
+<ul class="list-bullet">
+<li>Properties: <code>_name</code>, <code>_remainingVacationDays</code> (set to <code>20</code> inside the <code>constructor()</code>), <code>_insurance</code></li>
+<li>Methods: <code>.takeVacationDays()</code></li>
+</ul>
+<h4>Nurse</h4>
+<ul class="list-bullet">
+<li>Properties: <code>_name</code>, <code>_remainingVacationDays</code> (set to <code>20</code> inside <code>constructor()</code>), <code>_certifications</code></li>
+<li>Methods: <code>.takeVacationDays()</code>, <code>.addCertification()</code></li>
+</ul> <br>
+<p>In <strong>main.js</strong>, create a parent class named <code>HospitalEmployee</code>.  Add a constructor with <code>name</code> as an argument.</p> <br>
+<p>Inside of the <code>constructor()</code>, set the instance’s <code>_name</code> to <code>name</code> and <code>_remainingVacationDays</code> to <code>20</code>.</p>
+                            </li>
+                            <li>
+                                <p>Under the constructor, create getters for your <code>_name</code> and <code>_remainingVacationDays</code> properties. Inside the getter, return the property’s value.</p>
+                            </li>
+                            <li>
+                                <p>Under the getters, add a method called <code>takeVacationDays</code>. This method should accept one argument, called <code>daysOff</code>. </p>
+                                <p>Inside the method, subtract <code>daysOff</code> from <code>_remainingVacationDays</code>. Save the result to <code>_remainingVacationDays</code>.</p>
+                            </li>
+                            <li>
+                                <p>Create the <code>Nurse</code> class as a child of the <code>HospitalEmployee</code> class. Remember the <code>Nurse</code> class has the following properties and methods:</p>
+<h4>Nurse</h4>
+<ul class="list-bullet">
+<li>Properties: <code>_name</code>, <code>_remainingVacationDays</code> (set to <code>20</code> inside <code>constructor()</code>), <code>_certifications</code></li>
+<li>Methods: <code>.takeVacationDays()</code>, <code>.addCertification()</code></li>
+</ul>
+<p>Under <code>HospitalEmployee</code>, create an empty class named <code>Nurse</code> that extends <code>HospitalEmployee</code>.</p> <br>
+<p>Inside the <code>Nurse</code> class, create a <code>constructor()</code> that accepts two arguments. Use the list of properties above to name these arguments. </p> <br>
+<p>In the <code>Nurse</code> constructor, call the parent’s constructor method and pass the appropriate value(s).</p> <br>
+<p>Inside of the <code>Nurse</code> constructor, and under <code>super</code>, set <code>_certifications</code>.</p>
+                            </li>
+                            <li>
+                                <p>Under the <code>Nurse</code> class, create a new instance of <code>Nurse</code> and save it to a constant variable named <code>nurseOlynyk</code>. Pass in the following values for each property:</p>
+                                <ul class="list-bullet">
+                                    <li><code>name</code>: <code>'Olynyk'</code></li>
+                                    <li><code>certifications</code>: <code>['Trauma', 'Pediatrics']</code></li>
+                                    </ul>
+                            </li>
+                        </ol>
+                    </div> <br>
+                    <p>Now that we know how to create an object that inherits properties from a parent class let’s turn our attention to methods.</p> <br>
+                    <p>When we call <code>extends</code> in a class declaration, all of the parent methods are available to the child class. </p> <br>
+                    <p>In addition to the inherited features, child classes can contain their own properties, getters, setters, and methods. </p>
+                </div>
+            </div>
+            <div class="heading-block" style="margin-top: 5em;">
+                <h2>6. Static Methods</h2>
+                <div style="text-align: left; margin-top: 2em;">
+                    <p>Static methods, like many other features introduced in ES6, are meant to provide class-specific methods for object-oriented programming in Javascript. Static methods in Javascript are similar to class methods in Ruby. To declare a static method, simply prefix a method declaration with the word static inside the class declaration.</p>
+                    <br>
+                    <div class="exercise-block">
+                        <pre>
+// Syntax
+class Foo(){
+    static methodName(){
+       console.log("bar")
     }
-}; </div></span></pre>
-                    <p>We can chain operators to access nested properties. We’ll have to pay attention to which operator makes sense to use in each layer. It can be helpful to pretend you are the computer and evaluate each expression from left to right so
-                        that each operation starts to feel a little more manageable. </p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-variable">spaceship</span>.<span class="cm-property">nanoelectronics</span>[<span class="cm-string">'back-up'</span>].<span class="cm-property">battery</span>; <span class="cm-comment">// Returns 'Lithium'</span></div></span></pre>
-                    <p>In the preceding code:</p>
-                    <ul class="list-bullet">
-                        <li>First the computer evaluates <code>spaceship.nanoelectronics</code>, which results in an object containing the <code>back-up</code> and <code>computer</code> objects. </li>
-                        <li>We accessed the <code>back-up</code> object by appending <code>['back-up']</code>. </li>
-                        <li>The <code>back-up</code> object has a <code>battery</code> property, accessed with <code>.battery</code> which returned the value stored there: <code>'Lithium'</code></li>
-                    </ul>
+}</pre>
+                    </div> <br>
+                    <p>Sometimes you will want a class to have methods that aren’t available in individual instances, but that you can call directly from the class. </p> <br>
+<p>Take the <code>Date</code> class, for example — you can both create <code>Date</code> instances to represent whatever date you want, and call <em>static</em> methods, like <code>Date.now()</code> which returns the current date, directly from the class. The <code>.now()</code> method is static, so you can call it directly from the class, but not from an instance of the class. </p> <br>
+<p>Let’s see how to use the <code>static</code> keyword to create a static method called <code>generateName</code> method in our <code>Animal</code> class:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">class</span> <span class="cm-def">Animal</span> {
+  <span class="cm-property">constructor</span>(<span class="cm-def">name</span>) {
+    <span class="cm-keyword">this</span>.<span class="cm-property">_name</span> <span class="cm-operator">=</span> <span class="cm-variable-2">name</span>;
+    <span class="cm-keyword">this</span>.<span class="cm-property">_behavior</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;
+  }
+
+  <span class="cm-keyword">static</span> <span class="cm-property">generateName</span>() {
+    <span class="cm-keyword">const</span> <span class="cm-def">names</span> <span class="cm-operator">=</span> [<span class="cm-string">'Angel'</span>, <span class="cm-string">'Spike'</span>, <span class="cm-string">'Buffy'</span>, <span class="cm-string">'Willow'</span>, <span class="cm-string">'Tara'</span>];
+    <span class="cm-keyword">const</span> <span class="cm-def">randomNumber</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-variable">Math</span>.<span class="cm-property">random</span>()<span class="cm-operator">*</span><span class="cm-number">5</span>);
+    <span class="cm-keyword">return</span> <span class="cm-variable-2">names</span>[<span class="cm-variable-2">randomNumber</span>];
+  }
+} </div></span></pre>
+<p>In the example above, we create a <code>static</code> method called <code>.generateName()</code> that returns a random name when it’s called. Because of the <code>static</code> keyword, we can only access <code>.generateName()</code> by appending it to the <code>Animal</code> class.</p>
+<p>We call the <code>.generateName()</code> method with the following syntax:</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">Animal</span>.<span class="cm-property">generateName</span>()); <span class="cm-comment">// returns a name</span></div></span></pre>
+<p>You cannot access the <code>.generateName()</code> method from instances of the <code>Animal</code> class or instances of its subclasses (See below).</p>
+<pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">tyson</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Animal</span>(<span class="cm-string">'Tyson'</span>); 
+<span class="cm-variable">tyson</span>.<span class="cm-property">generateName</span>(); <span class="cm-comment">// TypeError</span></div></span></pre>
+<p>The example above will result in an error, because you cannot call static methods (<code>.generateName()</code>) on an instance (<code>tyson</code>). </p>
                     <br>
                     <div class="exercise-block">
                         <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">passengers</span>: <span class="cm-atom">null</span>,
-    <span class="cm-property">telescope</span>: {
-        <span class="cm-property">yearBuilt</span>: <span class="cm-number">2018</span>,
-        <span class="cm-property">model</span>: <span class="cm-string">'91031-XLT'</span>,
-        <span class="cm-property">focalLength</span>: <span class="cm-number">2032</span> 
-    },
-    <span class="cm-property">crew</span>: {
-        <span class="cm-property">captain</span>: { 
-            <span class="cm-property">name</span>: <span class="cm-string">'Sandra'</span>, 
-            <span class="cm-property">degree</span>: <span class="cm-string">'Computer Engineering'</span>, 
-            <span class="cm-property">encourageTeam</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'We got this!'</span>) },
-            <span class="cm-string cm-property">'favorite foods'</span>: [<span class="cm-string">'cookies'</span>, <span class="cm-string">'cakes'</span>, <span class="cm-string">'candy'</span>, <span class="cm-string">'spinach'</span>] }</span> 
-            }
-    },
-    <span class="cm-property">engine</span>: {
-        <span class="cm-property">model</span>: <span class="cm-string">'Nimbus2000'</span>
-        },
-    <span class="cm-property">nanoelectronics</span>: {
-        <span class="cm-property">computer</span>: {
-            <span class="cm-property">terabytes</span>: <span class="cm-number">100</span>,
-            <span class="cm-property">monitors</span>: <span class="cm-string">'HD'</span>
-        },
-        <span class="cm-property">backup</span>: {
-            <span class="cm-property">battery</span>: <span class="cm-string">'Lithium'</span>,
-            <span class="cm-property">terabytes</span>: <span class="cm-number">50</span>
-        }
-    }
-}; </div></span></pre>
                         <ol class="list-number">
-                            <li>
-                                <p>Create a variable <code>capFave</code> and assign the <code>captain</code>‘s favorite food (the element in the 0th index of her <code>'favorite foods'</code> array) to it. Make sure to use bracket and dot notation to get
-                                    the value of the food through nested access (don’t just copy the value into the variable!)</p>
-                            </li>
-                            <li>
-                                <p>Right now the <code>passengers</code> property has a value of <code>null</code>. Instead, assign as its value an array of objects. These objects should represent the <code>spaceship</code>‘s passengers as individual objects.
-                                    Make at least one passenger object in the array that has at least one key-value pair on it. </p>
-                            </li>
+                            <p>Inside of your <code>HospitalEmployee</code> class, create a static method called <code>generatePassword</code>. When it’s called, this method should return a random integer between zero and 10,000.</p>
+                                <div class="CodeMirror"><span class="cm-variable">Math</span>.<span class="cm-property">floor</span>(<span class="cm-variable">Math</span>.<span class="cm-property">random</span>() <span class="cm-operator">*</span> <span class="cm-number">10000</span>)</div>
                         </ol>
                     </div>
                 </div>
             </div>
             <div class="heading-block" style="margin-top: 5em;">
-                <h2>7. Pass By Reference</h2>
+                <h2>Review: Classes</h2>
                 <div style="text-align: left; margin-top: 2em;">
-                    <div class="spacing-tight__YTkj-JgyxXu1yRjOr_AFW markdown__9IJtFiBid4n5zXkbY44GA">
-                        <p>Objects are <em>passed by reference</em>. This means when we pass a variable assigned to an object into a function as an argument, the computer interprets the parameter name as pointing to the space in memory holding that object.
-                            As a result, functions which change object properties actually mutate the object permanently (even when the object is assigned to a <code>const</code> variable). </p>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">const</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">homePlanet</span> : <span class="cm-string">'Earth'</span>,
-    <span class="cm-property">color</span> : <span class="cm-string">'silver'</span>
-};
-
-<span class="cm-keyword">let</span> <span class="cm-def">paintIt</span> <span class="cm-operator">=</span> <span class="cm-def">obj</span> <span class="cm-operator">=&gt;</span> {
-    <span class="cm-variable-2">obj</span>.<span class="cm-property">color</span> <span class="cm-operator">=</span> <span class="cm-string">'glorious gold'</span>
-};
-
-<span class="cm-variable">paintIt</span>(<span class="cm-variable">spaceship</span>);
-
-<span class="cm-variable">spaceship</span>.<span class="cm-property">color</span> <span class="cm-comment">// Returns 'glorious gold'</span>
-</div></span></pre>
-                        <p>Our function <code>paintIt()</code> permanently changed the color of our <code>spaceship</code> object. However, reassignment of the <code>spaceship</code> variable wouldn’t work in the same way: </p>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">homePlanet</span> : <span class="cm-string">'Earth'</span>,
-    <span class="cm-property">color</span> : <span class="cm-string">'red'</span>
-};
-<span class="cm-keyword">let</span> <span class="cm-def">tryReassignment</span> <span class="cm-operator">=</span> <span class="cm-def">obj</span> <span class="cm-operator">=&gt;</span> {
-    <span class="cm-variable-2">obj</span> <span class="cm-operator">=</span> {
-        <span class="cm-property">identified</span> : <span class="cm-atom">false</span>, 
-        <span class="cm-string property">'transport type'</span> : <span class="cm-string">'flying'</span>
-    }
-    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable-2">obj</span>) <span class="cm-comment">// Prints {'identified': false, 'transport type': 'flying'}</span>
-};
-<span class="cm-variable">tryReassignment</span>(<span class="cm-variable">spaceship</span>) <span class="cm-comment">// The attempt at reassignment does not work.</span>
-<span class="cm-variable">spaceship</span> <span class="cm-comment">// Still returns {homePlanet : 'Earth', color : 'red'};</span>
-
-<span class="cm-variable">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">identified</span> : <span class="cm-atom">false</span>, 
-    <span class="cm-string property">'transport type'</span>: <span class="cm-string">'flying'</span>
-}; <span class="cm-comment">// Regular reassignment still works.</span></div></span></pre>
-                        <p>Let’s look at what happened in the code example:</p>
-                        <ul class="list-bullet">
-                            <li>We declared this <code>spaceship</code> object with <code>let</code>. This allowed us to reassign it to a new object with <code>identified</code> and <code>'transport type'</code> properties with no problems. </li>
-                            <li>When we tried the same thing using a function designed to reassign the object passed into it, the reassignment didn’t stick (even though calling <code>console.log()</code> on the object produced the expected result). </li>
-                            <li>When we passed <code>spaceship</code> into that function, <code>obj</code> became a reference to the memory location of the <code>spaceship</code> object, but <em>not</em> to the <code>spaceship</code> variable. This is because
-                                the <code>obj</code> parameter of the <code>tryReassignment()</code> function is a variable in its own right. The body of <code>tryReassignment()</code> has no knowledge of the <code>spaceship</code> variable at all! </li>
-                            <li>When we did the reassignment in the body of <code>tryReassignment()</code>, the <code>obj</code> variable came to refer to the memory location of the object <code>{'identified' : false, 'transport type' : 'flying'}</code>,
-                                while the <code>spaceship</code> variable was completely unchanged from its earlier value.</li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="exercise-block">
-                        <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-string property">'Fuel Type'</span>: <span class="cm-string">'Turbo Fuel'</span>,
-    <span class="cm-property">homePlanet</span>: <span class="cm-string">'Earth'</span>
-};
-</div></span></pre>
-                        <ol class="list-number">
-                            <li>
-                                <p>Write a function <code>greenEnergy()</code> that has an object as a parameter and sets that object’s <code>'Fuel Type'</code> property to <code>'avocado oil'</code>. </p>
-                            </li>
-                            <li>
-                                <p>Write a function <code>remotelyDisable()</code> that has an object as a parameter and sets (or reassigns) that object’s <code>disabled</code> property to <code>true</code>.</p>
-                            </li>
-                            <li>
-                                <p>Call your two functions with the <code>spaceship</code> object in the code editor, then <code>console.log()</code> the <code>spaceship</code> object to confirm those properties were changed/added. </p>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="heading-block" style="margin-top: 5em;">
-                <h2>8. Looping Through Objects</h2>
-                <div style="text-align: left; margin-top: 2em;">
-                    <p>Loops are programming tools that repeat a block of code until a condition is met. We learned how to iterate through arrays using their numerical indexing, but the key-value pairs in objects aren’t ordered! <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
-                            target="_blank" rel="noopener noreferrer">JavaScript has given us alternative solution for iterating through objects with the <code>for...in</code> syntax </a>.</p>
-                    <p><code>for...in</code> will execute a given block of code for each property in an object. </p>
-                    <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">crew</span>: {
-    <span class="cm-property">captain</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Lily'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Computer Engineering'</span>, 
-        <span class="cm-property">cheerTeam</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'You got this!'</span>) } 
-        },
-    <span class="cm-string property">'chief officer'</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Dan'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Aerospace Engineering'</span>, 
-        <span class="cm-property">agree</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'I agree, captain!'</span>) } 
-        },
-    <span class="cm-property">medic</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Clementine'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Physics'</span>, 
-        <span class="cm-property">announce</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Jets on!`</span>) } },
-    <span class="cm-property">translator</span>: {
-        <span class="cm-property">name</span>: <span class="cm-string">'Shauna'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Conservation Science'</span>, 
-        <span class="cm-property">powerFuel</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'The tank is full!'</span>) } 
-        }
-    }
-}; 
-<span class="cm-comment">// for...in</span>
-<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">crewMember</span> <span class="cm-keyword">in</span> <span class="cm-variable">spaceship</span>.<span class="cm-property">crew</span>) {
-    <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`${</span><span class="cm-variable">crewMember</span><span class="cm-string-2">}</span><span class="cm-string-2">: ${</span><span class="cm-variable">spaceship</span>.<span class="cm-property">crew</span>[<span class="cm-variable">crewMember</span>].<span class="cm-property">name</span><span class="cm-string-2">}</span><span class="cm-string-2">`</span>)
-};</div></span></pre>
-                    <p>Our <code>for...in</code> will iterate through each element of the <code>spaceship.crew</code> object. In each iteration, the variable <code>crewMember</code> is set to one of <code>spaceship.crew</code>‘s keys, enabling us to log
-                        a list of crew members’ role and <code>name</code>.</p>
-                    <br>
-                    <div class="exercise-block">
-                        <h4>Exercise</h4>
-                        <pre><span class="code-block"><div class="CodeMirror"><span class="cm-keyword">let</span> <span class="cm-def">spaceship</span> <span class="cm-operator">=</span> {
-    <span class="cm-property">crew</span>: {
-    <span class="cm-property">captain</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Lily'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Computer Engineering'</span>, 
-        <span class="cm-property">cheerTeam</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'You got this!'</span>) } 
-        },
-    <span class="cm-string property">'chief officer'</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Dan'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Aerospace Engineering'</span>, 
-        <span class="cm-property">agree</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'I agree, captain!'</span>) } 
-        },
-    <span class="cm-property">medic</span>: { 
-        <span class="cm-property">name</span>: <span class="cm-string">'Clementine'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Physics'</span>, 
-        <span class="cm-property">announce</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string-2">`Jets on!`</span>) } },
-    <span class="cm-property">translator</span>: {
-        <span class="cm-property">name</span>: <span class="cm-string">'Shauna'</span>, 
-        <span class="cm-property">degree</span>: <span class="cm-string">'Conservation Science'</span>, 
-        <span class="cm-property">powerFuel</span>() { <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-string">'The tank is full!'</span>) } 
-        }
-    }
-}; </div></span></pre>
-
-                        <ol class="list-number">
-                            <li>
-                                <p>Using <code>for...in</code>, iterate through the <code>spaceship.crew</code> object in your code editor and <code>console.log()</code> a list of crew roles and names in the following format: <code>'[crew member's role]: [crew member's name]'</code>,
-                                    e.g.,
-                                    <code>'chief officer: Dan'</code>. </p>
-                            </li>
-                            <li>
-                                <p>Using <code>for...in</code>, iterate through the <code>spaceship.crew</code> object in your code editor and <code>console.log()</code> a list of crew names and degrees in the following format: <code>'[crew member's name]: [crew member's degree]'</code>,
-                                    i.e.,
-                                    <code>'Lily: Computer Engineering'</code>.</p>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="heading-block" style="margin-top: 5em;">
-                <h2>Review</h2>
-                <div style="text-align: left; margin-top: 2em;">
-                    <p>Way to go! You’re well on your way to understanding the mechanics of objects in JavaScript. By building your own objects, you will have a better understanding of how JavaScript built-in objects work as well. You can also start imagining
-                        organizing your code into objects and modeling real world things in code. </p> <br>
-                    <p>Let’s review what we learned in this lesson:</p>
-                    <ul class="list-bullet">
-                        <li>Objects store collections of <em>key-value</em> pairs.</li>
-                        <li>Each key-value pair is a property—when a property is a function it is known as a method.</li>
-                        <li>An object literal is composed of comma-separated key-value pairs surrounded by curly braces.</li>
-                        <li>You can access, add or edit a property within an object by using dot notation or bracket notation.</li>
-                        <li>We can add methods to our object literals using key-value syntax with anonymous function expressions as values or by using the new ES6 method syntax.</li>
-                        <li>We can navigate complex, nested objects by chaining operators. </li>
-                        <li>Objects are mutable—we can change their properties even when they’re declared with <code>const</code>.</li>
-                        <li>Objects are passed by reference— when we make changes to an object passed into a function, those changes are permanent. </li>
-                        <li>We can iterate through objects using the <code>For...in</code> syntax.</li>
-                    </ul>
+                    <p>Way to go! Let’s review what you learned. </p>
+<ul class="list-bullet">
+<li><em>Classes</em> are templates for objects.</li>
+<li>Javascript calls a <em>constructor</em> method when we create a new instance of a class.</li>
+<li><em>Inheritance</em> is when we create a parent class with properties and methods that we can extend to child classes.</li>
+<li>We use the <code>extends</code> keyword to create a subclass.</li>
+<li>The <code>super</code> keyword calls the <code>constructor()</code> of a parent class.</li>
+<li>Static methods are called on the class, but not on instances of the class.</li>
+</ul>
+<p>In completing this lesson, you’ve taken one step closer to writing efficient, production-level JavaScript. Good luck as you continue to develop your skills and move into intermediate-level concepts.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3em;"><a href="/lesson05-objects.html">Objects</a> | <a href="/lesson05-classes.html">Classes</a></div>
